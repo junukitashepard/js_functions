@@ -1,0 +1,12 @@
+read_MESSAGE <- function(msg_scenario, msg_version, msg_variable) {
+
+  assign('var_out', rgdx(file.path(msg_dir, paste0('MsgOutput_MESSAGEix_TRADE__', msg_scenario, '__v', msg_version, '.gdx')),
+                         list(name = msg_variable)))
+  var_out <- rgdx.var(var_out)
+
+  i <- sapply(var_out, is.factor)
+  var_out[i] <- lapply(var_out[i], as.character)
+
+  return(var_out)
+}
+

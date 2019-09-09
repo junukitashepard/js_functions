@@ -1,0 +1,23 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1565174332782.000,
+    "dirty" : true,
+    "encoding" : "",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "95F6D7C2",
+    "lastKnownWriteTime" : 1565249370,
+    "last_content_update" : 1565249510253,
+    "path" : "H:/message_trade/analysis/4_run_message/map_tradeflows.R",
+    "project_path" : null,
+    "properties" : {
+        "cursorPosition" : "89,0",
+        "scrollLine" : "65",
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 3,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}
