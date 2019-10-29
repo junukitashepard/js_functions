@@ -1,0 +1,23 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1572351881946.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "12|60|63|0|\n66|58|93|0|\n",
+    "hash" : "0",
+    "id" : "54626343",
+    "lastKnownWriteTime" : 1572357938,
+    "last_content_update" : 1572357938587,
+    "path" : "H:/message_trade/analysis/5_post_process/3_SA_emissionfactor.R",
+    "project_path" : null,
+    "properties" : {
+        "cursorPosition" : "143,45",
+        "scrollLine" : "139",
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 11,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

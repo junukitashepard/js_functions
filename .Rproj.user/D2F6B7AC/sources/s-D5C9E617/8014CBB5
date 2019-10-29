@@ -1,0 +1,22 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1571768687101.000,
+    "dirty" : false,
+    "encoding" : "ISO8859-1",
+    "folds" : "",
+    "hash" : "2290528787",
+    "id" : "8014CBB5",
+    "lastKnownWriteTime" : 1571768824,
+    "last_content_update" : 1571768824247,
+    "path" : "H:/message_trade/config_post_baseline.R",
+    "project_path" : null,
+    "properties" : {
+        "cursorPosition" : "30,0",
+        "scrollLine" : "14"
+    },
+    "relative_order" : 2,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

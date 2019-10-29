@@ -1,0 +1,23 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1565173476212.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "497392971",
+    "id" : "D2EFEA62",
+    "lastKnownWriteTime" : 1571666996,
+    "last_content_update" : 1571666996794,
+    "path" : "H:/jsfunctions/R/read_MESSAGE.R",
+    "project_path" : "R/read_MESSAGE.R",
+    "properties" : {
+        "cursorPosition" : "7,33",
+        "scrollLine" : "0",
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}
