@@ -1,1 +1,1 @@
-{"active_set":"","sets":[]}
+{"active_set":"Publish Content Issues","sets":[{"base_path":"H:/message_trade/analysis/5_post_process/shiny/compare_baseline_tax/","markers":[{"column":1,"line":7,"log_line":-1,"log_path":"","message":"Paths should be to files within the project directory.","path":"H:/message_trade/analysis/5_post_process/shiny/compare_baseline_tax/ui.R","show_error_list":true,"type":1}],"name":"Publish Content Issues"}]}
