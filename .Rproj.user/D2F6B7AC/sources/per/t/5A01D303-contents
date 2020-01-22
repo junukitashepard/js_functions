@@ -1,0 +1,79 @@
+########################
+# Build all parameters #
+########################
+rm(list = ls())
+wd <- 'H:/message_trade/analysis/4_run_message/build_scenarios/'
+wd.data <- 'H:/data/'
+setwd(wd)
+
+library('plyr')
+library('dplyr')
+library('magrittr')
+library('jsfunctions')
+library('ggplot2')
+
+input <-   paste0(wd.data, "output/analysis/msg_parameters/")
+output <-  paste0(wd.data, "output/analysis/msg_parameters/SCENARIOS/")
+
+# Import baseline parameters 
+############################
+var_cost.base <- readRDS(file.path(input, 'var_cost/var_cost_base.rds'))
+
+# Define parameters of interest and energy commodities
+#######################################################
+# List of parameters
+parameter_list <- c('bound_activity_lo', 'bound_activity_up',
+                    'capacity_factor', 'fix_cost',
+                    'growth_activity_lo', 'growth_activity_up',
+                    'historical_activity', 'historical_new_capacity',
+                    'initial_activity_lo', 'initial_activity_up',
+                    'input', 'inv_cost',
+                    'level_cost_activity_soft_lo', 'level_cost_activity_soft_up',
+                    'output', 'soft_activity_lo', 'soft_activity_up', 'technical_lifetime')
+
+# Technical lifetime
+tech_lifetime = 5
+
+# List of energy commodities
+energy_list <- c('oil', 'coal', 'loil', 'foil', 'LNG')
+
+# List of technologies
+export_technologies <- c('oil_exp', 'coal_exp', 'loil_exp', 'foil_exp', 'LNG_exp')
+
+# List of regions
+regions <- c('afr', 'cas', 'cpa', 'eeu', 'lam', 'mea', 'nam', 'pao', 'pas', 'rus', 'sas', 'scs', 'ubm', 'weu')
+
+# Build scenario #
+##################
+# Adjust var_cost
+adj_var_cost <- function(scenario, adjust_variable) {
+  
+  df <- readRDS(file.path(wd, paste0('var_cost_effects/', scenario, '.rds')))
+  suppressWarnings(df <- left_join(var_cost.base, df, by = c('technology', 'node_loc', 'year_act')))
+  names(df)[names(df) == adjust_variable] <- 'adj_var'
+  df$adj_var[is.nan(df$adj_var) | is.na(df$adj_var) | is.infinite(df$adj_var)] <- 0
+  
+  df$value <- df$value + (df$value*(df$adj_var/100))
+  df$adj_var <- NULL
+  
+  return(df)
+}
+
+# Adjust for tariffs
+baseline <- adj_var_cost('baseline', 'mean_tariff')
+tariff_high <- adj_var_cost('tariff_high', 'mean_tariff')
+tariff_low <- adj_var_cost('tariff_low', 'mean_tariff')
+
+# Write scenario output
+for (scen in c('baseline', 'tariff_high', 'tariff_low')) {
+  for (t in export_technologies) {
+    
+    assign('df', get(scen))
+    
+    df <- subset(df, grepl(t, technology))
+    if (t == 'oil_exp') {df <- subset(df, substr(technology, 1, 3) == 'oil')} # so we don't include foil or loil
+    
+    saveRDS(df, file.path(output, paste0(scen, '/var_cost/', t, '.rds')))
+    write.csv(df, file.path(output, paste0(scen, '/var_cost/', t, '.csv')))
+  }
+}
